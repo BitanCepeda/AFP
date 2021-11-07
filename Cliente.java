@@ -1,0 +1,594 @@
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Iterator;
+import java.io.Serializable;
+/**
+ * La clase cliente es la encargada de recopilar todos los datos del usuario, y lleva todos
+ * sus registros
+ * 
+ * @author Brayan Orlando Rivera Cepeda 
+ * @version (14/06/2017)
+ */
+public class Cliente implements Serializable
+{
+ 
+//Variables de datos personales del cliente
+private String nombres, apellidos, apodo, nombreUsado;
+
+//Variables de datos financieros del cliente
+private String cargo, empresa, ocupacion, clasificacion;
+private HashMap<String, Double> IngresosExtras =new HashMap<String, Double>();
+private HashMap<String, Double> Servicios =new HashMap<String, Double>();
+private HashMap<String, Double> Deudas =new HashMap<String, Double>();
+private HashMap<String, Double> Prestamos =new HashMap<String, Double>();
+private double sueldo, ahorros;
+private double servicos, extrascos, deudascos, prestamoscos;
+
+//Variables de uso 
+private Scanner leer= new Scanner(System.in);
+private Scanner con=new Scanner(System.in);
+private Scanner leo=new Scanner(System.in);
+private Scanner a=new Scanner(System.in);
+private Scanner b=new Scanner(System.in);
+private Scanner c=new Scanner(System.in);
+private Scanner leon=new Scanner(System.in);
+private Scanner tecla=new Scanner(System.in);
+
+
+public Cliente()
+{
+}
+
+
+/**
+* Inicializar ingresando los datos de usuario
+*/    
+public void Iniciar()
+{
+  System.out.println("\f\t**Bienvenido al ADMINISTRADOR FINANCIERO PERSONAL**\n");
+  System.out.println("Pulse una tecla para continuar");
+  con.nextLine();
+  DatosPersonales();
+  System.out.println("\f");
+  DatosFinancieros();
+   System.out.println("\fPor favor ingrese el monto de ahorros con el que cuenta en este momento");
+   ahorros=con.nextDouble();
+   System.out.println("\nPulse una tecla para continuar");
+   leon.nextLine();
+   System.out.println("\fA continuación recompilaremos los datos de sus servicios personales");
+   setServicios();
+}
+
+
+
+    
+    /**
+* Agrega ó cambia el apodo del usuario, pedido anteriormente
+*/
+public void SetApodo()
+{
+    //Variable local para continuar
+  
+    String igual;
+    int confirmar=0;;
+    
+    do
+    {
+        System.out.println("\nPor favor ingrese su apodo");
+        apodo=leer.nextLine();
+        System.out.println("\n"+apodo + " es su apodo(?)(si/no)");
+        igual=a.nextLine();
+    
+   if(igual.equals("si"))
+   { 
+      
+       System.out.println("\nSu apodo ha sido guardado exitosamente");  
+       System.out.println("\nPulse una tecla para continuar");
+       tecla.nextLine();
+       nombreUsado=apodo;
+       confirmar=1;
+     
+    }  
+       else{
+           if(igual.equals("no"))
+           System.out.println("Inténtelo nuevamente\n");
+           
+           
+           else
+            System.out.println("Entrada inválida, inténtelo de nuevo");
+           }
+      }while(confirmar==0);
+   
+}
+
+
+    /**
+* Agrega los datos personales del usuario
+*/
+private void DatosPersonales()
+{
+   System.out.println("\fDATOS PERSONALES :\n");
+   
+   
+   
+   System.out.println("Ingrese sus nombres: ");
+   nombres=b.nextLine();
+   System.out.println("\nIngrese sus apellidos: ");
+   apellidos=c.nextLine();
+   
+   int right=0;
+    while(right==0)
+   {
+   System.out.println("\nTiene algún apodo ó nombre de cariño que quiera utilizar(?)(si/no) ");
+   //Variable local para confirmación
+   //Variable Scanner
+   
+   String confir;
+   confir=con.nextLine();
+   
+   //Variable local para el ingreso correcto de la respuesta
+   
+   
+  
+   if(confir.equals("si"))
+       { 
+           SetApodo();
+           right=1;
+       }
+   else
+   {
+      if(confir.equals("no"))
+      {
+    nombreUsado=nombres;
+    right=1;
+      }
+    else
+     System.out.println("Entrada inválida, inténtelo de nuevo");
+   }
+  }  
+  System.out.println("\fGracias por ingresar sus datos personales "+nombreUsado+", operación exitosa\n");  
+  System.out.println("Pulse una tecla para continuar");
+  leer.nextLine();
+}
+
+
+
+/**
+* Agrega  los datos financieros del usuario
+*/
+public void DatosFinancieros()
+{
+    //variable local para confirmación
+    String confir;
+   System.out.println("\fDATOS FINANCIEROS :\n");
+   System.out.println("Es usted empleado ó trabajador independiente(?)(empleado/independiente)");
+   confir=leon.nextLine();
+   System.out.println("\nPulse una tecla para continuar");
+   tecla.nextLine();
+   clasificacion=confir;
+   
+   //Variable local para el ingreso correcto de la respuesta
+   int right=0;
+   while(right==0)
+   {
+   if(confir.equals("empleado"))
+   {
+       esEmpleado();
+       System.out.println("\f");
+       right=1;
+   }
+   else
+   {
+       if(confir.equals("independiente"))
+       {
+       esIndependiente();
+       System.out.println("\f");
+       right=1;
+       }
+       else
+       System.out.println("Entrada inválida, inténtelo de nuevo");
+      
+   }
+   
+   }
+   
+  
+   
+  
+   
+}
+
+/**
+ * Artefacto de código que se utiliza si el usuario es empleado
+ */
+private void esEmpleado()
+{
+    System.out.println("\f\tDatos de empleado");
+    System.out.println("\nCuál es su profesión(?)");
+    ocupacion=a.nextLine();
+    System.out.println("\nCuál es el nombre de su empresa u organización en la que trabaja actualmente(?)");
+    empresa=b.nextLine();
+    System.out.println("\nCuál es el cargo que ocupa actualmente(?)");
+    cargo=c.nextLine();
+    System.out.println("\nCuántos son sus ingresos mensuales(en pesos colombianos)(?)");
+    sueldo=leer.nextDouble();
+    System.out.println("\nGracias por su información");
+    System.out.print("\nPulse una tecla para continuar ");
+    tecla.nextLine();
+}
+
+/**
+ * Artefacto de código que se utiliza si el usuario es independiente
+ */
+private void esIndependiente()
+{
+     System.out.println("\f\tDatos de trabajador independiente");
+    System.out.println("\nA qué se dedica(?)");
+    ocupacion=leo.nextLine();
+    System.out.println("\nCuántos son sus ingresos mensuales apróximados(en pesos colombianos)(?)");
+    sueldo=con.nextDouble();
+    System.out.println("Gracias por su información");
+    System.out.print("\nPulse una tecla para continuar ");
+    leer.nextLine();
+}
+
+/**
+ * Insertar un ingreso extra
+ */
+public void ingresosExtras()
+{
+    //Variable local para confirmación
+   String confir="no";
+   int conf=0;
+    do
+    {
+    //Variables locales para agregar aal HashMap
+    String extra;
+    double costo;
+    System.out.println("\fPor favor agregue una descripción del ingreso extra");
+    extra=tecla.nextLine();
+    System.out.println("\nPor favor ingrese el costo que significó");
+    costo=leer.nextDouble();
+    agregaExtras(costo);
+    IngresosExtras.put(extra,costo);
+    System.out.println("\nEl servicio extra de "+extra+" con un costo de "+costo+" se agregó exitósamente\n");
+    System.out.println("Desea agregar otro servicio extra que haya realizado y haya sido remunerado(?)(si/no)");
+    confir=a.nextLine();
+    
+    //Variable local para el ingreso correcto de la respuesta
+   int right=0;
+    
+   while(right==0)
+   {
+    if(confir.equals("si"))
+    {
+       System.out.println("Agregar otro servicio extra");
+       right=1;
+    }
+    else
+    {
+        if(confir.equals("no"))
+        {
+        conf=1;
+        right=1;
+        }
+        else
+        System.out.println("Entrada inválida, inténtelo de nuevo");
+    }
+  }
+  
+    }while(conf==0);
+}
+
+/**
+ * Insertar una deuda
+ */
+public void Deudas()
+{
+    //Variable local para confirmación
+   String confir="no";
+   int conf=0;
+    do
+    {
+    //Variables locales para agregar aal HashMap
+    String entidad;
+    double costo;
+    System.out.println("\fPor favor ingrese el nombre de la persona ó entidad a quien debe");
+    entidad=leo.nextLine();
+    System.out.println("\nPor favor ingrese el costo que significa");
+    costo=leer.nextDouble();
+    agregaDeudas(costo);
+    Deudas.put(entidad,costo);
+    System.out.println("El registro de deuda hacia "+entidad+" con un costo de "+costo+" se agregó exitósamente\n");
+    System.out.println("Desea agregar otra deuda(?)(si/no)");
+    confir=c.nextLine();
+    
+    //Variable local para el ingreso correcto de la respuesta
+   int right=0;
+    
+   while(right==0)
+   {
+    if(confir.equals("si"))
+    {
+       System.out.println("Agregar otra deuda");
+       right=1;
+    }
+    else
+    {
+        if(confir.equals("no"))
+        {
+        conf=1;
+        right=1;
+        }
+        else
+        System.out.println("Entrada inválida, inténtelo de nuevo");
+    }
+}  
+    
+    }while(conf==0);
+}
+
+/**
+ * Insertar un ingreso un préstamo hecho
+ */
+public void Prestamo()
+{
+    //Variable local para confirmación
+   String confir="no";
+   int conf=0;
+   
+    do
+    {
+       //Variables locales para agregar aal HashMap
+         String entidad;
+         double costo;
+          System.out.println("\fPor favor ingrese el nombre de la persona ó entidad a quién prestó: ");
+         entidad=c.nextLine();
+         System.out.println("\nPor favor ingrese el costo que significa");
+         costo=b.nextDouble();
+        agregaPrestamos(costo);
+        Prestamos.put(entidad,costo);
+         System.out.println("El registro de prestamo hacia "+entidad+" con un costo de "+costo+" se agregó exitósamente\n");
+         System.out.println("Desea agregar otro prestamo(?)(si/no)");
+       confir=leo.nextLine();
+    
+    //Variable local para el ingreso correcto de la respuesta
+   int right=0;
+    
+   while(right==0)
+   {
+    if(confir.equals("si"))
+    {
+       System.out.println("Agregar otro prestamo");
+       right=1;
+    }
+    else
+    {
+        if(confir.equals("no"))
+        {
+        conf=1;
+        right=1;
+        }
+        else
+        System.out.println("Entrada inválida, inténtelo de nuevo");
+    }
+}   
+    
+    }while(conf==0);
+}
+
+/**
+ * Insertar ó modificar datos de los servicios de el usuario
+ */
+public void setServicios()
+{
+   //Variable local para confirmación
+   String confir="no";
+   int conf=0;
+    do
+    {
+    //Variables locales para agregar aal HashMap
+    String servicio;
+    double costo;
+    System.out.println("\fEn esta sección recopilaremos los servicios en los cuales"); 
+    System.out.println("usted invierte dinero constantemente\n");
+    System.out.println("Por favor ingrese el nombre de el servicio");
+    servicio=a.nextLine();
+    System.out.println("\nPor favor ingrese el costo que significa el servicio");
+    costo=leer.nextDouble();
+    agregaServicio(costo);
+    Servicios.put(servicio,costo);
+    
+    System.out.println("El servicio de "+servicio+" con un costo de "+costo+" se agregó exitósamente\n");
+    System.out.println("Desea agregar otro servicio(?)(si/no)");
+    confir=leo.nextLine();
+    
+    //Variable local para el ingreso correcto de la respuesta
+   int right=0;
+    
+   while(right==0)
+   {
+    if(confir.equals("si"))
+    {
+       System.out.println("Agregar otro servicio");
+       right=1;
+    }
+    else
+    {
+        if(confir.equals("no"))
+        {
+        conf=1;
+        right=1;
+        }
+        else
+        System.out.println("Entrada inválida, inténtelo de nuevo");
+    }
+}
+       
+    }while(conf==0);
+
+}
+
+/**
+ * Retorna el total de ingresos extras
+ */
+public double getIngresosExtras()
+{
+    return extrascos;
+}
+
+/**
+ * Retorna el total de servicios
+ */
+public double getServicios()
+{
+    return servicos;
+}
+
+/**
+ * Retorna el total de deudas
+ */
+public double getDeudas()
+{
+    return deudascos;
+}
+
+/**
+ * Retorna el total de dinero prestado a otras entidades
+ */
+public double getIngresosPrestamos()
+{
+    return prestamoscos;
+}
+
+/**
+ * Retorna el sueldo del cliente
+ */
+public double getSueldo()
+{
+    return sueldo;
+}
+
+/**
+ * Retorna el total de ahorros que posee el usuario
+ */
+public double getAhorros()
+{
+    return ahorros;
+}
+
+/**
+ * Retorna el nombre preferido por el usuario
+ */
+public String getNombreUsado()
+{
+    return nombreUsado;
+}
+
+/**
+ * Agrega un monto al monto total de servicios
+ */
+private void agregaServicio(double costo)
+{
+    servicos=servicos+costo;
+}
+
+/**
+ * Agrega un monto al monto total de horas extras
+ */
+private void agregaExtras(double costo)
+{
+    extrascos=extrascos+costo;
+}
+
+/**
+ * Agrega un monto al monto total de deudas
+ */
+private void agregaDeudas(double costo)
+{
+    deudascos=deudascos+costo;
+}
+
+/**
+ * Agrega un monto al monto total de préstamos
+ */
+private void agregaPrestamos(double costo)
+{
+    prestamoscos=prestamoscos+costo;
+}
+
+/**
+ * Recargar los ahorros, sumando una cantidad de dinero ingresada
+ */
+public void setAhorros()
+{
+    double ahorros;
+    System.out.println("\fPor favor ingrese la cantidad de dinero que ingresó a sus ahorros");
+    ahorros=leer.nextDouble();
+    System.out.println("\nPulse una tecla para continuar");
+    tecla.nextLine();
+    this.ahorros=this.ahorros+ahorros;
+}
+
+/**
+ * Muestra el estado del usuario
+ */
+public void Estado()
+{
+   
+    System.out.println("\fMis datos son: \n");
+    System.out.println("Nombre : " + nombres + " " +apellidos);
+    System.out.println("Nombre favorito  : "+nombreUsado);
+    
+     System.out.println("Se desempeña en :"+ocupacion);
+     System.out.println("Con unas ganancias mensuales de : " +sueldo);
+    
+    if (clasificacion=="empleado")
+    {
+        System.out.println("Desempeña un cargo de :"+cargo);
+        System.out.println("Trabaja en : "+empresa);
+        
+    }
+    System.out.println("Total de ahorros : "+ahorros+"\n");
+    
+    System.out.println("\n\nLista de ingresos extras");
+    Iterator extras=IngresosExtras.entrySet().iterator();
+    while(extras.hasNext())
+    {
+        HashMap.Entry e= (HashMap.Entry)extras.next();
+        System.out.println(e.getKey() + " " + e.getValue());
+    }
+    
+    System.out.println("\n\nLista de servicios");
+     Iterator servicios=Servicios.entrySet().iterator();
+    while(servicios.hasNext())
+    {
+        HashMap.Entry f= (HashMap.Entry)servicios.next();
+        System.out.println(f.getKey() + " " + f.getValue());
+    }
+    
+    System.out.println("\n\nLista de deudas");
+     Iterator deudas=Deudas.entrySet().iterator();
+    while(deudas.hasNext())
+    {
+        HashMap.Entry g= (HashMap.Entry)deudas.next();
+        System.out.println(g.getKey() + " " + g.getValue());
+    }
+    
+    System.out.println("\n\nLista de préstamos");
+     Iterator prestamos=Prestamos.entrySet().iterator();
+    while(prestamos.hasNext())
+    {
+        HashMap.Entry h= (HashMap.Entry)prestamos.next();
+        System.out.println(h.getKey() + " " + h.getValue());
+    }
+     
+    System.out.print("\nPulse una tecla para continuar ");
+    leer.nextLine();
+    
+}
+
+
+
+}
+

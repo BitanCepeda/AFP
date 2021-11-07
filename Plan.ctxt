@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Plan
+comment0.text=\r\n\ Se\ calcula\ el\ plan\ de\ desarrollo\ de\ proyecto\ m\u00E1s\ adecuado\ para\ el\ cliente\r\n\ @author\ Brayan\ Orlando\ Rivera\ Cepeda\r\n\ @version\ (14/06/2017)\r\n
+comment1.params=bienestar\ costo
+comment1.target=boolean\ crearPlan(BienestarFinanciero,\ double)
+comment1.text=\r\n\ Calcular\ plan\ de\ desarrollo\r\n@param\ se\ ingresa\ el\ estado\ financiero\r\n@param\ se\ ingresa\ el\ costo\ del\ proyecto\r\n
+comment2.params=
+comment2.target=double\ getcuotaDiaria()
+comment2.text=\r\n\ Retorna\ la\ cuota\ diaria\ que\ se\ usar\u00E1\ para\ el\ proyecto\r\n
+comment3.params=
+comment3.target=double\ getCosto()
+comment3.text=\r\n\ Retorna\ el\ costo\ estimado\ del\ proyecto\r\n
+comment4.params=
+comment4.target=int\ getDias()
+comment4.text=\r\n\ Retorna\ los\ d\u00EDas\ estimados\ para\ realizar\ el\ proyecto\r\n
+numComments=5

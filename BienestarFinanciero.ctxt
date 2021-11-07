@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BienestarFinanciero
+comment0.text=\r\nClase\ para\ hallar\ el\ estad\ financiero\ del\ cliente\r\n\ \r\n\ @author\ Brayan\ Orlando\ Rivera\ Cepeda\r\n\ @version\ (14/06/2017)\r\n
+comment1.params=Usuario
+comment1.target=void\ Bienestar(Cliente)
+comment1.text=\r\n\ Inicializar\ el\ estado\ financiero\ a\ analizar\r\n@param\ se\ ingresan\ todos\ los\ datos\ del\ cliente\ para\ que\ sea\ estudiado\r\n
+comment2.params=
+comment2.target=void\ estadoFinanciero()
+comment2.text=\r\n\ Calcular\ estado\ financiero\r\n
+comment3.params=
+comment3.target=java.lang.String\ getEstado()
+comment3.text=\r\n\ Retorna\ estado\ financiero\ previamente\ hallado\r\n
+numComments=4

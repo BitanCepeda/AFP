@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ControlDiario
+comment0.text=\r\n\ Se\ lleva\ el\ registro\ de\ todos\ los\ proyectos\ hechos\ por\ el\ usuario,\ tambi\u00E9n\ los\ descartados\r\n\ @author\ Brayan\ Orlando\ Rivera\ Cepeda\r\n\ @version\ (14/06/2017)\r\n
+comment1.params=proyectos
+comment1.target=void\ mostrarDia(java.util.ArrayList)
+comment1.text=\r\n\ Muestra\ todos\ los\ proyectos\ sin\ terminar\ por\ orden\ de\ selecci\u00F3n\r\n
+comment2.params=pro
+comment2.target=boolean\ pagar(Proyecto)
+comment2.text=\r\n\ Se\ realiza\ el\ pago\ u\ abono\ de\ un\ proyecto\ no\ desarrollado\r\n
+numComments=3

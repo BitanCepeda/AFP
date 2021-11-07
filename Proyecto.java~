@@ -1,0 +1,136 @@
+import java.util.Scanner;
+   /**
+* Información del proyecto
+* @author Brayan Orlando Rivera Cepeda
+* @version (14/06/2017)
+*/
+public class Proyecto
+{
+
+
+private double cuotaDiaria;
+private String nombre, tipo, descripcion;
+private double desarrollo=0;
+private double costo, saldo;
+private int dias;
+Scanner teclado=new Scanner(System.in);
+Scanner tecla=new Scanner(System.in);
+
+/**
+* Agrega un proyecto
+*@param se requiere un plan, con todo ya estudiado
+*/
+public void CrearProyecto(Plan plan)
+{
+    System.out.println("\nPor favor ingrese el nombre del proyecto");
+    nombre=teclado.nextLine();
+    System.out.println("\nPor favor ingrese el tipo de proyecto");
+    System.out.println("urgente, importante, necesario u ocio");
+    tipo=teclado.nextLine();
+    System.out.println("\nPor favor ingrese una corta descripción del proyecto");
+    descripcion=tecla.nextLine();
+    System.out.println("\nSu proyecto ha sido agregado exitosamente");
+    cuotaDiaria=plan.getcuotaDiaria();
+    System.out.println("Aportando de su bolsillo "+cuotaDiaria+" pesos diariamente");
+    costo=plan.getCosto();
+    saldo=costo;
+    dias=plan.getDias();
+    
+    System.out.println("\nPulse una tecla para continuar");
+    teclado.nextLine();
+    
+}
+
+/**
+* Retorna el nombre otorgado al proyecto
+*/
+public String getNombre()
+{
+    return nombre;
+}
+
+/**
+* Retorna el tipo asignado para el proyecto
+*/
+public String getTipo()
+{ 
+    return tipo;
+}
+
+/**
+* Retorna el porcentaje de desarrollo del proyecto
+*/
+public double getDesarrollo()
+{
+    return desarrollo;
+}
+
+/**
+* Retorna la descripción del proyecto dada por el usuario
+*/
+public String getDescripcion()
+{
+    return descripcion;
+}
+
+/**
+* Cambia la descripción del proyecto
+*/
+public void setDescripcion(String descripcion)
+{
+    this.descripcion=descripcion;
+}
+
+/**
+* Modifica el porcentaje de desarrollo al pagar
+*/
+public void setDesarrollo(double desarrollo )
+{
+   
+    this.desarrollo=this.desarrollo+desarrollo;
+    System.out.println("El proyecto lleva un "+this.desarrollo+"% de desarrollo");
+
+
+}
+
+/**
+* Retorna el costo del proyecto
+*/
+public double getCosto()
+{
+    return costo;
+}
+
+/**
+* Retorna los días estimados para realizar el proyecto
+*/
+public int getDias()
+{
+    return dias;
+}
+
+/**
+* Cambia el saldo del proyecto al pagar
+*/
+public void setSaldo(double saldo)
+{
+    this.saldo=saldo;
+}
+
+/**
+* Retorna el saldo del proyecto por pagar
+*/
+public double getSaldo()
+{
+    return saldo;
+}
+
+/**
+* Cambia la descripción del proyecto
+*/
+public double getCuotaDiaria()
+{
+    return cuotaDiaria;
+}
+
+}

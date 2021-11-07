@@ -1,0 +1,89 @@
+
+ /**
+* Servicios de internet
+* @author Brayan Orlando Rivera Cepeda
+* @version (14/06/2017)
+*/
+public class Internet
+{
+ 
+/**
+* Ver noticias nacionales e internacionales
+*@opción de el menú para ver una sección de noticias en el navegador
+*/
+public void VerNoticias(int opc)
+{
+    if(opc==1)
+    {
+    
+         String colombia = "http://www.eltiempo.com/colombia";
+         try
+                {
+                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + colombia);
+                }
+                catch(Exception err)
+                {
+                    
+                }
+    }
+    
+    if(opc==2)
+    {
+    
+         String colombia = "http://www.eltiempo.com/politica";
+         try
+                {
+                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + colombia);
+                }
+                catch(Exception err)
+                {
+                    
+                }
+    }
+    
+    if(opc==5)
+    {
+    
+         String colombia = "http://www.eltiempo.com/deportes";
+         try
+                {
+                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + colombia);
+                }
+                catch(Exception err)
+                {
+                    
+                }
+    }
+    
+    if(opc==4)
+    {
+    
+         String colombia = "http://www.eltiempo.com/tecnosfera";
+         try
+                {
+                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + colombia);
+                }
+                catch(Exception err)
+                {
+                    
+                }
+    }
+    
+    if(opc==3)
+    {
+    
+         String colombia = "http://http://www.eltiempo.com/noticias/agricultura";
+         try
+                {
+                    Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + colombia);
+                }
+                catch(Exception err)
+                {
+                    
+                }
+    }
+    
+}
+
+
+}

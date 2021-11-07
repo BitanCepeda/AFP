@@ -1,0 +1,57 @@
+
+
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * The test class ProyectoTest.
+ *
+ * @author  (your name)
+ * @version (a version number or a date)
+ */
+public class ProyectoTest
+{
+    /**
+     * Default constructor for test class ProyectoTest
+     */
+    public ProyectoTest()
+    {
+    }
+
+    /**
+     * Sets up the test fixture.
+     *
+     * Called before every test case method.
+     */
+    @Before
+    public void setUp()
+    {
+    }
+
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
+
+    @Test
+    public void Proyecto()
+    {
+        Proyecto proyecto1 = new Proyecto();
+        Cliente cliente1 = new Cliente();
+        BienestarFinanciero bienesta1 = new BienestarFinanciero();
+        Plan plan1 = new Plan();
+        proyecto1.CrearProyecto(plan1);
+        cliente1.Iniciar();
+        bienesta1.Bienestar(cliente1);
+        assertEquals(plan1.crearPlan(bienesta1, 40000));
+        proyecto1.CrearProyecto(plan1);
+    }
+}
+

@@ -1,0 +1,74 @@
+
+/**
+* Menú de ejecución
+* @author Brayan Orlando Rivera Cepeda
+* @version (14/06/2017)
+*/
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.util.Scanner;
+public class App
+{
+    /**
+     * 
+     */
+  public static void main(String[] args)
+  {
+      String entrada="";
+      String entrada2="";
+ try
+{
+FileReader lector=new FileReader("Entrada.txt");
+BufferedReader contenido=new BufferedReader(lector);
+
+
+while((entrada=contenido.readLine())!=null)
+{
+   entrada2=entrada;
+}
+
+}
+
+catch(Exception e)
+{
+System.out.println("Error al leer sus datos, el programa se reiniciará\n");
+System.out.println("Lo lamentamos");
+
+}
+
+     
+
+if(entrada2.equals(""))
+{
+      Interfaz I= new Interfaz();
+      I.Inicio();
+    }
+else
+{
+    if(entrada2.contains("datos"))
+    {
+        System.out.println("Implementar archivos");
+        Scanner x= new Scanner(System.in);
+        x.nextLine();
+         Interfaz I= new Interfaz();
+          I.Inicio2();
+        
+    // Interfaz I= new Interfaz();
+      // I.Inicio2();
+      
+     
+      
+       }
+}
+
+      
+      
+      
+      
+
+
+}
+      
+  }
+
+

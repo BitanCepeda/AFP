@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Internet
+comment0.text=\r\n\ Servicios\ de\ internet\r\n\ @author\ Brayan\ Orlando\ Rivera\ Cepeda\r\n\ @version\ (14/06/2017)\r\n
+comment1.params=opc
+comment1.target=void\ VerNoticias(int)
+comment1.text=\r\n\ Ver\ noticias\ nacionales\ e\ internacionales\r\n@opci\u00F3n\ de\ el\ men\u00FA\ para\ ver\ una\ secci\u00F3n\ de\ noticias\ en\ el\ navegador\r\n
+numComments=2

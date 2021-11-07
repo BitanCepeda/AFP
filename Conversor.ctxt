@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Conversor
+comment0.text=\r\n\ Servicios\ de\ Conversi\u00F3n\ de\ moneda\r\n\ @author\ Brayan\ Orlando\ Rivera\ Cepeda\r\n\ @version\ (14/06/2017)\r\n
+comment1.params=moneda1\ moneda2
+comment1.target=void\ Manual(java.lang.String,\ java.lang.String)
+comment1.text=\r\nConvertir\ manualmente\r\n@param\ nombre\ de\ las\ dos\ monedas\r\n
+comment2.params=
+comment2.target=void\ Auto()
+comment2.text=\r\n\r\n/**\r\nConvertir\ en\ l\u00EDnea,\ usando\ el\ navegador\r\n
+numComments=3
